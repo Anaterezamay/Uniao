@@ -30,7 +30,7 @@ if ano == '2006'or'2010'or'2014':
     import pandas as pd
 
 
-    estado = input('Digite a sigla do estado desejado:')
+    estado = input('Digite a sigla do estado desejado. Ah! Se deseja saber para presidente digite BR. Agora vamos lá: ')
     estado = estado.upper()
 
     #Transformar o TXT em CSV - Bens dos candidatos
@@ -99,7 +99,7 @@ if ano == '2006'or'2010'or'2014':
     juntar_tabelas = pd.merge(bens_analise, candidatos_analise, on='Codigo')
 
     #Criando um filtro com o pandas para escolher o cargo que será analisado
-    cargo_escolhido = input('Qual cargo você quer analisar? Ex.: deputado estadual, deputado federal')
+    cargo_escolhido = input('Qual cargo você quer analisar? Ex.: Presidente, Governador, Senador, Deputado Estadual, Deputado Federal.')
     cargo_escolhido = cargo_escolhido.upper()
     filtrado = juntar_tabelas[juntar_tabelas.Cargo == cargo_escolhido]
 
@@ -233,3 +233,5 @@ else:
 
     #Salvando a tabela limpa e analisada como csv
     filtrado_cidade.to_csv(f'tabelafinal{estado_analise}.csv')
+    
+print('Está prontinho! Agora procure por "tabelafinal+cicla do estado" na barra de pesquisa! Nos vemos na próxima!')
